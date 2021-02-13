@@ -33,10 +33,17 @@ then
     defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
     # Change time zone
-    echo "What is your current timezone?"
-    echo "Respond with Continent/City"
-    read timezone
-    sudo systemsetup -settimezone $timezone
+    echo "Would you like to change your current timezone?"
+    echo "(for if you turned of location services)"
+    echo "Respond with Y for yes or N for no."
+    read settimezone
+    if [ $settimezone == "Y" ]
+    then
+        echo "What is your current timezone?"
+        echo "Respond with Continent/City"
+        read timezone
+        sudo systemsetup -settimezone $timezone
+    fi
 fi
 
 # Install XCode Command Line Tools (CLT)
