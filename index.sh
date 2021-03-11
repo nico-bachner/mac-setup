@@ -10,6 +10,7 @@ brew install fish
 # Make Fish Shell the default shell
 echo $(brew --prefix)/bin/fish | sudo tee -a /etc/shells
 chsh -s $(brew --prefix)/bin/fish
+set fish_greeting ""
 
 # Change system defaults
 echo "Would you like to change system default settings?"
@@ -62,11 +63,14 @@ fi
 # Install Starship
 brew install starship
 echo "starship init fish | source" > ~/.config/fish/config.fish
-set fish_greeting ""
 
 # Install font Fira Code
 brew tap homebrew/cask-fonts
 brew install font-fira-code
+
+# Create a projects directory in home folder
+mkdir ~/projects
+echo "cd projects" >> ~/.config/fish/config.fish
 
 # Install Formulae
 brew install gh
