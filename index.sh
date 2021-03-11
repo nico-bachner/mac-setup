@@ -1,3 +1,16 @@
+# Install XCode Command Line Tools (CLT)
+xcode-select --install
+
+# Install Homebrew
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+
+# Install Fish Shell
+brew install fish
+
+# Make Fish Shell the default shell
+echo $(brew --prefix)/bin/fish | sudo tee -a /etc/shells
+chsh -s $(brew --prefix)/bin/fish
+
 # Change system defaults
 echo "Would you like to change system default settings?"
 echo "Respond with Y for yes or N for no."
@@ -34,7 +47,7 @@ then
 
     # Change time zone
     echo "Would you like to change your current timezone?"
-    echo "(for if you turned of location services)"
+    echo "(only if you turned of location services)"
     echo "Respond with Y for yes or N for no."
     read settimezone
     if [ $settimezone == "Y" ]
@@ -46,22 +59,10 @@ then
     fi
 fi
 
-# Install XCode Command Line Tools (CLT)
-xcode-select --install
-
-# Install Homebrew
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-
-# Install Fish Shell
-brew install fish
-
-# Make Fish Shell the default shell
-echo $(brew --prefix)/bin/fish | sudo tee -a /etc/shells
-chsh -s $(brew --prefix)/bin/fish
-
 # Install Starship
 brew install starship
 echo "starship init fish | source" > ~/.config/fish/config.fish
+set fish_greeting ""
 
 # Install font Fira Code
 brew tap homebrew/cask-fonts
@@ -71,7 +72,6 @@ brew install font-fira-code
 brew install gh
 brew install node
 brew install deno
-brew install tectonic
 
 # Install Casks
 brew install --cask visual-studio-code
@@ -79,3 +79,4 @@ brew install --cask firefox
 brew install --cask google-chrome
 brew install --cask tor-browser
 brew install --cask discord
+brew install --cask signal
