@@ -6,6 +6,12 @@ Setup script for Mac clean (re)install
 
 To run, `curl` the script and run it:
 
-```
+``` sh
 curl https://raw.githubusercontent.com/nico-bachner/mac-setup/main/index.sh | sh
+```
+
+When done, restart the terminal and run this script:
+
+``` fish
+curl https://raw.githubusercontent.com/nico-bachner/mac-setup/main/index.sh | fish
 ```
